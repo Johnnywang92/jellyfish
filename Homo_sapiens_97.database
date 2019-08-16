@@ -21,8 +21,9 @@ Homo_sapiens.GRCh37.87.chr.gtf.gz
 
 vim snpEff.config
 
-# ENSEMBL release 97
+ ENSEMBL release 97
 ############/GRCh37.96/###################
+
 GRCh37.97.genome : Homo_sapiens_97
 
 mkdir Homo_sapiens_97 && cd Homo_sapiens_97
