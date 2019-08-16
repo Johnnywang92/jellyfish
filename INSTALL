@@ -1,0 +1,39 @@
+http://www.bioinfo-scrounger.com/archives/677
+
+http://grch37.ensembl.org/Homo_sapiens/Info/Index
+ftp://ftp.ensembl.org/pub/grch37/release-97
+
+参考基因组序列Genome:
+Homo_sapiens.GRCh37.dna.primary_assembly.fa.gz
+
+参考regulatory annotations：
+homo_sapiens.GRCh37.Regulatory_Build.regulatory_features.20180925.gff.gz
+
+参考cds序列
+Homo_sapiens.GRCh37.cds.all.fa.gz
+
+参考蛋白序列
+Homo_sapiens.GRCh37.pep.all.fa.gz
+
+参考注释文件GTF
+Homo_sapiens.GRCh37.87.chr.gtf.gz
+
+
+vim snpEff.config
+
+# ENSEMBL release 97
+############/GRCh37.96/###################
+GRCh37.97.genome : Homo_sapiens_97
+
+mkdir Homo_sapiens_97 && cd Homo_sapiens_97
+
+gunzip ./*
+mv Homo_sapiens.GRCh37.dna.primary_assembly.fa sequences.fa
+mv Homo_sapiens.GRCh37.87.chr.gtf genes.gtf
+
+mv Homo_sapiens.GRCh37.pep.all.fa protein.fa
+mv Homo_sapiens.GRCh37.cds.all.fa cds.fa
+mv homo_sapiens.GRCh37.Regulatory_Build.regulatory_features.20180925.gff regulation.gff
+
+
+java -jar snpEff.jar build -gtf22 -v Homo_sapiens_97
